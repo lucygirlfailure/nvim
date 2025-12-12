@@ -1,3 +1,18 @@
 local map = vim.keymap.set
 map("n", "<leader>h", "<cmd>nohlsearch<CR>")
 map("n", "<leader>tt", "<cmd>Telescope colorscheme<cr>")
+
+map("n", "<leader>ff", "<cmd> Telescope find_files <cr>")
+map("n", "<A-1>", "<cmd> BufferLineGoToBuffer 1 <cr>")
+map("n", "<A-2>", "<cmd> BufferLineGoToBuffer 2 <cr>")
+map("n", "<A-3>", "<cmd> BufferLineGoToBuffer 3 <cr>")
+map("n", "<A-4>", "<cmd> BufferLineGoToBuffer 4 <cr>")
+map("n", "<A-5>", "<cmd> BufferLineGoToBuffer 5 <cr>")
+map("n", "<A-6>", "<cmd> BufferLineGoToBuffer 6 <cr>")
+map("n", "<A-7>", "<cmd> BufferLineGoToBuffer 7 <cr>")
+map("n", "<A-8>", "<cmd> BufferLineGoToBuffer 8 <cr>")
+map("n", "<A-9>", "<cmd> BufferLineGoToBuffer 9 <cr>")
+map("n", "<A-0>", "<cmd> BufferLineGoToBuffer last <cr>")
+map("n", "<leader>t", "<cmd> terminal <cr>")
+map("t", "<esc>", "<c-\\><c-n>")
+map({ "i", "n" }, "<c-f>", "<cmd>lua vim.lsp.buf.format() <cr>")

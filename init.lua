@@ -14,10 +14,11 @@ require("conform").setup({
 		lsp_format = "fallback",
 	},
 })
+vim.cmd.colorscheme("gruvbox")
 require("neocord").setup({
 	logo_tooltip = "ur gay OwO",
 })
-vim.cmd.colorscheme("gruvbox")
+require("bufferline").setup()
 vim.diagnostic.config({
 	virtual_text = {
 		spacing = 2,
