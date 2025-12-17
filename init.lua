@@ -8,6 +8,8 @@ require("conform").setup({
 		python = { "isort", "black" },
 		rust = { "rustfmt", lsp_format = "fallback" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+		jsonc = { "prettierd", "prettier", stop_after_first = true },
+		css = { "prettierd", "prettier", stop_after_first = true },
 	},
 	format_on_save = {
 		timeout_ms = 500,
@@ -29,7 +31,7 @@ vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim" },
+				globals = { "vim", "oxwm" },
 			},
 		},
 	},
