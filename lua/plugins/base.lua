@@ -14,4 +14,15 @@ return {
 			},
 		},
 	},
+	{
+		"raddari/last-color.nvim",
+		event = "VimEnter",
+		config = function()
+			require("last-color").setup({
+				-- Optional configuration
+				-- auto_save = true, -- Save colorscheme on :colorscheme command (default true)
+				-- auto_load = true, -- Load colorscheme on startup (default true)
+			})
+		end,
+	},
 }

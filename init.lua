@@ -16,10 +16,11 @@ require("conform").setup({
 		lsp_format = "fallback",
 	},
 })
-vim.cmd.colorscheme("gruvbox")
 require("neocord").setup({
 	logo_tooltip = "ur gay OwO",
 })
+local theme = require("last-color").recall() or "default"
+vim.cmd.colorscheme(theme)
 require("bufferline").setup()
 vim.diagnostic.config({
 	virtual_text = {
