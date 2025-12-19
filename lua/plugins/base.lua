@@ -1,10 +1,23 @@
 return {
 	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "ellisonleao/gruvbox.nvim" },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "rebelot/kanagawa.nvim" },
 	{ "folke/tokyonight.nvim" },
-	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+			-- animation = true,
+			-- insert_at_start = true,
+			-- …etc.
+		},
+		version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	},
 	{
 		"NvChad/nvim-colorizer.lua",
 		opts = {
@@ -13,16 +26,5 @@ return {
 				names = false,
 			},
 		},
-	},
-	{
-		"raddari/last-color.nvim",
-		event = "VimEnter",
-		config = function()
-			require("last-color").setup({
-				-- Optional configuration
-				-- auto_save = true, -- Save colorscheme on :colorscheme command (default true)
-				-- auto_load = true, -- Load colorscheme on startup (default true)
-			})
-		end,
 	},
 }

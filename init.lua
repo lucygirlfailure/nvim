@@ -2,26 +2,10 @@ require("config.lazy")
 require("core.options")
 require("core.keymaps")
 require("mason-lspconfig").setup()
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "isort", "black" },
-		rust = { "rustfmt", lsp_format = "fallback" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-		jsonc = { "prettierd", "prettier", stop_after_first = true },
-		css = { "prettierd", "prettier", stop_after_first = true },
-	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
-})
 require("neocord").setup({
 	logo_tooltip = "ur gay OwO",
 })
-local theme = require("last-color").recall() or "default"
-vim.cmd.colorscheme(theme)
-require("bufferline").setup()
+vim.cmd.colorscheme("wallust")
 vim.diagnostic.config({
 	virtual_text = {
 		spacing = 2,
