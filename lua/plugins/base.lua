@@ -1,5 +1,13 @@
 return {
-	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			defaults = {
+				border = false,
+			},
+		},
+	},
 	{ "folke/tokyonight.nvim" },
 	{
 		"romgrk/barbar.nvim",

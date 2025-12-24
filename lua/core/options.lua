@@ -8,3 +8,18 @@ opt.expandtab = true
 opt.clipboard = "unnamedplus"
 opt.smartindent = true
 opt.hlsearch = true
+vim.diagnostic.config({
+	virtual_text = {
+		spacing = 2,
+		source = true,
+	},
+})
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim", "oxwm" },
+			},
+		},
+	},
+})
