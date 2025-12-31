@@ -29,10 +29,17 @@ vim.pack.add {
   { src = 'https://github.com/lewis6991/gitsigns.nvim.git' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons.git' },
   { src = 'https://github.com/akinsho/bufferline.nvim.git' },
-  { src = 'https://github.com/catgoose/nvim-colorizer.lua.git' }
+  { src = 'https://github.com/catgoose/nvim-colorizer.lua.git' },
+  { src = 'https://github.com/stevearc/oil.nvim.git' },
+  { src = 'https://github.com/nvim-mini/mini.pick.git' },
+  { src = 'https://github.com/nvim-mini/mini.extra' },
 }
-require 'colorizer'.setup()
 
+require("cord").setup()
+require("mason").setup()
+require('mini.extra').setup()
+require("colorizer").setup()
+require("mini.pick").setup()
 require("bufferline").setup()
 require("gitsigns").setup()
 require("nvim-web-devicons").setup()
@@ -75,46 +82,29 @@ require("nvim-treesitter").setup({
     enable = true,
   },
 })
-require("cord").setup()
-require("mason").setup()
-
--- setup lsp servers
-
-vim.lsp.config('*', {
-  capabilities = {
-    require("cmp_nvim_lsp").default_capabilities(),
-    textDocument = {
-      semanticTokens = {
-        multilineTokenSupport = true,
-      }
-    }
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "isort", "black" },
+    rust = { "rustfmt", lsp_format = "fallback" },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    jsonc = { "prettierd", "prettier", stop_after_first = true },
+    css = { "prettierd", "prettier", stop_after_first = true },
+    c = { "clang-format" },
   },
-  root_markers = { '.git' },
-})
-
-
-vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim", "oxwm" },
+  formatters = {
+    ["clang-format"] = {
+      prepend_args = {
+        "--style={BasedOnStyle: LLVM, BreakBeforeBraces: Allman}"
       },
     },
   },
-})
-
--- enable lsp servers
-
-vim.lsp.enable({ "lua_ls", "clangd", "qmlls", "hyprls" })
--- diagnostic config
-vim.diagnostic.config({
-  virtual_text = {
-    spacing = 2,
-    source = true,
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
   },
 })
 
--- set up completion
 local cmp = require("cmp")
 
 cmp.setup({
@@ -159,29 +149,45 @@ cmp.setup({
   }),
 })
 
--- setup conform.nvim
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    python = { "isort", "black" },
-    rust = { "rustfmt", lsp_format = "fallback" },
-    javascript = { "prettierd", "prettier", stop_after_first = true },
-    jsonc = { "prettierd", "prettier", stop_after_first = true },
-    css = { "prettierd", "prettier", stop_after_first = true },
-    c = { "clang-format" },
+-- setup lsp servers
+
+vim.lsp.config('*', {
+  capabilities = {
+    require("cmp_nvim_lsp").default_capabilities(),
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
+    }
   },
-  formatters = {
-    ["clang-format"] = {
-      prepend_args = {
-        "--style={BasedOnStyle: LLVM, BreakBeforeBraces: Allman}"
+  root_markers = { '.git' },
+})
+
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim", "oxwm" },
       },
     },
   },
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = "fallback",
+})
+
+-- enable lsp servers
+
+vim.lsp.enable({ "lua_ls", "clangd", "qmlls", "hyprls" })
+-- diagnostic config
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 2,
+    source = true,
   },
 })
+
+-- set up completion
+
+-- setup conform.nvim
 
 -- keymaps
 local map = vim.keymap.set
@@ -198,3 +204,6 @@ map("n", "<A-0>", "<cmd> BufferLineGoToBuffer last <cr>")
 map("n", "<leader>w", "<cmd> BufferLinePickClose <cr>")
 map("n", "<leader>t", "<cmd> terminal <cr>")
 map("t", "<esc>", "<c-\\><c-n>")
+map("n", "<leader>ff", "<cmd>Pick explorer <cr>")
+map("n", "<leader>lg", "<cmd>Pick grep_live <cr>")
+map("n", "<leader>tt", "<cmd>Pick colorschemes <cr>")
