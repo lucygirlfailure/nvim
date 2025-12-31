@@ -29,7 +29,9 @@ vim.pack.add {
   { src = 'https://github.com/lewis6991/gitsigns.nvim.git' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons.git' },
   { src = 'https://github.com/akinsho/bufferline.nvim.git' },
+  { src = 'https://github.com/catgoose/nvim-colorizer.lua.git' }
 }
+require 'colorizer'.setup()
 
 require("bufferline").setup()
 require("gitsigns").setup()
@@ -103,7 +105,7 @@ vim.lsp.config("lua_ls", {
 
 -- enable lsp servers
 
-vim.lsp.enable({ "lua_ls", "clangd", "qmlls" })
+vim.lsp.enable({ "lua_ls", "clangd", "qmlls", "hyprls" })
 -- diagnostic config
 vim.diagnostic.config({
   virtual_text = {
