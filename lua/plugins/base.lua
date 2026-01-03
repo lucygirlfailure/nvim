@@ -2,11 +2,6 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			defaults = {
-				border = false,
-			},
-		},
 	},
 	{ "folke/tokyonight.nvim" },
 	{
