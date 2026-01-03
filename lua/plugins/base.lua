@@ -1,22 +1,38 @@
-vim.pack.add({
-  { src = 'https://github.com/stevearc/oil.nvim.git' },
-  { src = 'https://github.com/vyfor/cord.nvim' },
-  { src = 'https://github.com/mason-org/mason.nvim.git' },
-  { src = 'https://github.com/nvim-tree/nvim-web-devicons.git' },
-  { src = 'https://github.com/nvim-mini/mini.pick.git' },
-  { src = 'https://github.com/catgoose/nvim-colorizer.lua.git' },
-  { src = 'https://github.com/akinsho/bufferline.nvim.git' },
-  { src = 'https://github.com/lewis6991/gitsigns.nvim.git' },
-  { src = 'https://github.com/nvim-mini/mini.extra' },
-})
-
-
-require("oil").setup()
-require("cord").setup()
-require("mason").setup()
-require('mini.extra').setup()
-require("colorizer").setup()
-require("mini.pick").setup()
-require("bufferline").setup()
-require("gitsigns").setup()
-require("nvim-web-devicons").setup()
+return {
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			defaults = {
+				border = false,
+			},
+		},
+	},
+	{ "folke/tokyonight.nvim" },
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+			-- animation = true,
+			-- insert_at_start = true,
+			-- …etc.
+		},
+		version = "^1.0.0", -- optional: only update when a new 1.x version is released
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				mode = "background",
+				names = false,
+			},
+		},
+	},
+}

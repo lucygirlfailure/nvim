@@ -1,50 +1,46 @@
-vim.pack.add({
-  { src = 'https://github.com/hrsh7th/nvim-cmp.git' },
-  { src = 'https://github.com/hrsh7th/cmp-nvim-lsp.git' },
-  { src = 'https://github.com/hrsh7th/cmp-path.git' },
-})
-
-
-local cmp = require("cmp")
-
-cmp.setup({
-  -- REQUIRED: You must specify a snippet engine
-  snippet = {
-    expand = function(args)
-      -- Use Neovim's native snippet engine (since you are on v0.10+)
-      vim.snippet.expand(args.body)
-    end,
+return {{
+  "hrsh7th/nvim-cmp",
+  version = false, -- last release is way too old
+  event = "InsertEnter",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
   },
+  opts = function()
+    vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
 
-  -- Completion behavior
-  completion = {
-    completeopt = "menu,menuone,noinsert",
-  },
-
-  -- Preselect the first item (equivalent to your auto_select logic)
-  preselect = cmp.PreselectMode.Item,
-
-  -- Mappings
-  mapping = cmp.mapping.preset.insert({
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
+    local cmp = require("cmp")
+    local defaults = require("cmp.config.default")()
+    local auto_select = true
+    return {
+      auto_brackets = {}, -- configure any filetype to auto add brackets
+      completion = {
+        completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+      },
+      preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
+      mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+	      ["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						else
+							fallback()
+						end
     end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  }),
-
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "path" },
-  }),
-})
+      }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "path" },
+      }),
+    }
+  end,
+}
+}
