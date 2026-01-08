@@ -23,3 +23,17 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+vim.lsp.config("termux-language-server", {
+	cmd = { "termux-language-server" }, -- Ensure this is in your PATH
+	filetypes = {
+		"sh",
+		"bash",
+		"gentoo-package-keywords",
+		"gentoo-package-mask",
+		"gentoo-package-use",
+		"gentoo-make-conf",
+		"gentoo-ebuild",
+		"gentoo-eclass",
+	},
+})
