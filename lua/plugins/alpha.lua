@@ -62,31 +62,34 @@ return {
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local telescope = require("telescope")
-			local actions = require("telescope.actions")
+		opts = {
 
-			telescope.setup({
-				defaults = {
-					prompt_prefix = " ",
-					selection_caret = " ",
-					sorting_strategy = "ascending",
-					layout_config = {
-						prompt_position = "top",
-					},
-					mappings = {
-						i = {
-							["<C-j>"] = actions.move_selection_next,
-							["<C-k>"] = actions.move_selection_previous,
-							["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-						},
-					},
+			defaults = {
+				vimgrep_arguments = {
+					"rg",
+					"--no-ignore",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--trim", -- add this value
 				},
-				pickers = {
-					find_files = { find_command = { "fd", "--type", "f", "--color", "never", "-u" } },
-					live_grep = { theme = "ivy" },
+				preview = {
+					treesitter = false,
 				},
-			})
-		end,
+				borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+				prompt_prefix = " ",
+				selection_caret = " ",
+				sorting_strategy = "ascending",
+				layout_config = {
+					prompt_position = "top",
+				},
+			},
+			pickers = {
+				find_files = { find_command = { "fd", "--type", "f", "--color", "never", "-u" } },
+			},
+		},
 	},
 }

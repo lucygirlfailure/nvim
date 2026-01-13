@@ -9,7 +9,11 @@ return {
 			words = {
 				enabled = true,
 			},
-			image = { enabled = true },
+			picker = {
+				enabled = true,
+				prompt = " ",
+				cmd = "fd",
+			},
 		},
 	},
 }

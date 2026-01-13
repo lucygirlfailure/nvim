@@ -1,23 +1,5 @@
 return {
 	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-
-			defaults = {
-				borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-				defaults = {
-					border = {
-						find_files = { 0, 0, 0, 0 },
-					},
-				},
-				preview = {
-					treesitter = false,
-				},
-			},
-		},
-	},
-	{
 		"SmiteshP/nvim-navic",
 		opts = {
 			lsp = {
@@ -26,7 +8,6 @@ return {
 			depth_limit = 0,
 		},
 	},
-	{ "folke/tokyonight.nvim" },
 	{
 		"romgrk/barbar.nvim",
 		dependencies = {
