@@ -1,3 +1,4 @@
+local navic = require("nvim-navic")
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -15,7 +16,7 @@ return {
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { "diagnostics" },
-					lualine_c = { "filename" },
+					lualine_c = { "filename", "navic" },
 					lualine_x = { "lsp_status", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },
