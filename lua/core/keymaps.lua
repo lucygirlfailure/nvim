@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 map("n", "<leader>h", "<cmd>nohlsearch<CR>")
 map("n", "<leader>tt", "<cmd>lua Snacks.picker.colorschemes()<cr>")
-
+map("n", "<C-e>", "<cmd> lua Snacks.picker.explorer()<cr>")
 map("n", "<leader>ff", "<cmd>lua Snacks.picker.files()<cr>")
 map("n", "<leader>lg", "<cmd>lua Snacks.picker.grep()<cr>")
 map("n", "<A-1>", "<cmd> BufferGoto 1 <cr>")
