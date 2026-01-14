@@ -10,9 +10,18 @@ return {
 				enabled = true,
 			},
 			picker = {
-				enabled = true,
-				prompt = " ",
-				cmd = "fd",
+				sources = {
+					files = {
+						prompt = " ",
+						cmd = "fd",
+						hidden = true,
+					},
+					grep = {
+						prompt = " ",
+						cmd = "rg",
+						hidden = true,
+					},
+				},
 			},
 		},
 	},

@@ -36,9 +36,9 @@ return {
 
 			dashboard.section.buttons.val = {
 				dashboard.button("e", "  new file", ":ene<CR>"),
-				dashboard.button("f", "  search files", ":Telescope find_files<CR>"),
-				dashboard.button("p", "  recent project", ":Telescope projects<CR>"),
-				dashboard.button("g", "  live grep", ":Telescope live_grep<CR>"),
+				dashboard.button("f", "  search files", "<cmd> lua Snacks.picker.files()<CR>"),
+				dashboard.button("p", "  recent project", "<cmd> lua Snacks.picker.projects()<CR>"),
+				dashboard.button("g", "  live grep", "<cmd> lua Snacks.picker.grep()<CR>"),
 				dashboard.button("q", "  quit neovim", ":qa<CR>"),
 			}
 
@@ -55,33 +55,6 @@ return {
 			}
 
 			alpha.setup(dashboard.opts)
-		end,
-	},
-
-	-- Telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("telescope").load_extension("projects")
-			require("telescope").setup({
-				defaults = {
-					preview = {
-						treesitter = false,
-					},
-					borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-					prompt_prefix = " ",
-					selection_caret = " ",
-					sorting_strategy = "ascending",
-					layout_config = {
-						prompt_position = "top",
-					},
-				},
-				pickers = {
-					find_files = { find_command = { "fd", "--type", "f", "--color", "never" } },
-				},
-			})
 		end,
 	},
 }

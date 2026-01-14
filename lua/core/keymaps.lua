@@ -1,9 +1,9 @@
 local map = vim.keymap.set
 map("n", "<leader>h", "<cmd>nohlsearch<CR>")
-map("n", "<leader>tt", "<cmd>Telescope colorscheme<cr>")
+map("n", "<leader>tt", "<cmd>lua Snacks.picker.colorschemes()<cr>")
 
-map("n", "<leader>ff", "<cmd> Telescope find_files <cr>")
-map("n", "<leader>lg", "<cmd> Telescope live_grep <cr>")
+map("n", "<leader>ff", "<cmd>lua Snacks.picker.files()<cr>")
+map("n", "<leader>lg", "<cmd>lua Snacks.picker.grep()<cr>")
 map("n", "<A-1>", "<cmd> BufferGoto 1 <cr>")
 map("n", "<A-2>", "<cmd> BufferGoto 2 <cr>")
 map("n", "<A-3>", "<cmd> BufferGoto 3 <cr>")
