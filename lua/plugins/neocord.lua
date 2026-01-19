@@ -1,9 +1,9 @@
 return {
 	{
-		"vyfor/cord.nvim",
-		build = ":Cord update",
+		"IogaMaster/neocord",
+		event = "VeryLazy",
 		opts = {
-			editor = { tooltip = "if u read this, ur gay" },
+			logo_tooltip = "if u read this ur gay OwO",
 		},
 	},
 }
