@@ -8,7 +8,6 @@ opt.cursorline = true
 opt.tabstop = 2
 opt.shiftwidth = 4
 opt.swapfile = false
-vim.cmd.colorscheme("wallust")
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

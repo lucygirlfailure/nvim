@@ -62,4 +62,11 @@ return {
 			require("bufferline").setup()
 		end,
 	},
+	 {
+  "nyoom-engineering/oxocarbon.nvim"
+  -- Add in any other configuration; 
+  --   event = foo, 
+  --   config = bar
+  --   end,
+}
 }
