@@ -31,7 +31,7 @@ return {
 			}
 			dashboard.section.header.opts = {
 				position = "center",
-				hl = "Type",
+				hl = "Normal",
 			}
 
 			dashboard.section.buttons.val = {
