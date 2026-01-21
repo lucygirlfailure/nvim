@@ -26,4 +26,3 @@ require("lazy").setup({
 	-- automatically check for plugin updates
 	change_detection = { notify = false },
 })
-vim.cmd.colorscheme("oxocarbon")
