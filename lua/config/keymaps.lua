@@ -11,7 +11,7 @@ map("n", "gs", vim.lsp.buf.signature_help)
 map("n", "gl", vim.diagnostic.open_float)
 map("n", "<leader>qf", vim.lsp.buf.code_action)
 -- bufferline keybinds
--- map("n", "<A-1>", "<cmd> BufferLineGoToBuffer 1 <cr>")
+map("n", "<A-1>", "<cmd> BufferLineGoToBuffer 1 <cr>")
 map("n", "<A-2>", "<cmd> BufferLineGoToBuffer 2 <cr>")
 map("n", "<A-3>", "<cmd> BufferLineGoToBuffer 3 <cr>")
 map("n", "<A-4>", "<cmd> BufferLineGoToBuffer 4 <cr>")

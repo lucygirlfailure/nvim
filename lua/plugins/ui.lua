@@ -6,6 +6,19 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		config = function()
+			require("telescope").setup({
+				defaults = {
+					borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+					defaults = {
+						border = {
+							find_files = { 1, 1, 1, 1 },
+						},
+					},
+					preview = {
+						treesitter = false,
+					},
+				},
+			})
 			-- default telescope bindings
 			local builtin = require("telescope.builtin")
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
