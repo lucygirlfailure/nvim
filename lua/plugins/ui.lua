@@ -18,6 +18,9 @@ return {
 						treesitter = false,
 					},
 				},
+				pickers = {
+					find_files = { find_command = { "fd", "--type", "f", "--color", "never", "-u" } },
+				},
 			})
 			-- default telescope bindings
 			local builtin = require("telescope.builtin")
