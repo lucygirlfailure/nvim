@@ -8,7 +8,15 @@ opt.cursorline = true
 opt.tabstop = 2
 opt.shiftwidth = 4
 vim.cmd.colorscheme("wallust")
-
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim", "oxwm" },
+			},
+		},
+	},
+})
 vim.diagnostic.config({
 	virtual_text = {
 		spacing = 2,
