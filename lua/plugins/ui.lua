@@ -62,11 +62,17 @@ return {
 			require("bufferline").setup()
 		end,
 	},
-	 {
-  "nyoom-engineering/oxocarbon.nvim"
-  -- Add in any other configuration; 
-  --   event = foo, 
-  --   config = bar
-  --   end,
-}
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
 }

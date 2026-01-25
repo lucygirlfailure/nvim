@@ -4,7 +4,7 @@ return {
 		build = ":TSUpdate",
 		lazy = false,
 		config = function()
-			require('nvim-treesitter').setup({
+			require("nvim-treesitter").setup({
 				ensure_installed = { "c", "lua", "cpp", "qmldir", "qmljs" },
 				sync_install = false,
 				auto_install = false,
@@ -50,5 +50,24 @@ return {
 				lsp_format = "fallback",
 			},
 		},
-	}
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- for syntax highlighting inside the popup
+			"nvim-tree/nvim-web-devicons", -- for pretty icons
+		},
+		config = function()
+			require("lspsaga").setup({
+				ui = {
+					border = "rounded",
+				},
+				hover = {
+					max_width = 0.6,
+					open_link = "gx",
+					open_browser = "!google-chrome",
+				},
+			})
+		end,
+	},
 }

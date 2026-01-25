@@ -1,15 +1,10 @@
 local map = vim.keymap.set
 vim.g.mapleader = " "
 -- lsp keybinds
-map("n", "K", vim.lsp.buf.hover)
-map("n", "gd", vim.lsp.buf.definition)
-map("n", "gD", vim.lsp.buf.declaration)
-map("n", "gi", vim.lsp.buf.implementation)
-map("n", "go", vim.lsp.buf.type_definition)
-map("n", "gr", vim.lsp.buf.references)
-map("n", "gs", vim.lsp.buf.signature_help)
-map("n", "gl", vim.diagnostic.open_float)
-map("n", "<leader>qf", vim.lsp.buf.code_action)
+map("n", "K", "<cmd> Lspsaga hover_doc<cr>")
+map("n", "go", "<cmd> Lspsaga goto_definition<cr>")
+map("n", "gr", "<cmd> Lspsaga finder<cr>")
+map("n", "<leader>qf", "<cmd> Lspsaga code_action<cr>")
 -- bufferline keybinds
 map("n", "<A-1>", "<cmd> BufferLineGoToBuffer 1 <cr>")
 map("n", "<A-2>", "<cmd> BufferLineGoToBuffer 2 <cr>")

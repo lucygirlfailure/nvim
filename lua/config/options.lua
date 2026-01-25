@@ -8,15 +8,6 @@ opt.cursorline = true
 opt.tabstop = 2
 opt.shiftwidth = 4
 opt.swapfile = false
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim", "oxwm" },
-			},
-		},
-	},
-})
 vim.diagnostic.config({
 	virtual_text = {
 		spacing = 2,
