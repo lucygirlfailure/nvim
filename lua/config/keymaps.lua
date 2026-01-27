@@ -25,3 +25,4 @@ map("n", "<leader>w", "<cmd> bdelete! <cr>")
 -- util keybinds
 map("n", "<leader>t", "<cmd> terminal <cr>")
 map("t", "<esc>", "<c-\\><c-n>")
+map("n", "<A-e>", "<cmd>NvimTreeToggle<cr>")
