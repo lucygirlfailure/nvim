@@ -62,6 +62,8 @@ return {
 				ui = {
 					border = "rounded",
 				},
+				lightbulb = { enable = false },
+				symbol_in_winbar = { enable = false },
 				hover = {
 					max_width = 0.6,
 					open_link = "gx",

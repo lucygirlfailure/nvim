@@ -55,17 +55,6 @@ return {
 		end,
 	},
 	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		opts = function()
-			require("bufferline").setup()
-		end,
-	},
-	{
-		"nyoom-engineering/oxocarbon.nvim",
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
@@ -74,5 +63,9 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},
+	},
+	{
+		"ThePrimeagen/harpoon",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 }
