@@ -2,9 +2,9 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 -- lsp keybinds
 map("n", "K", "<cmd> Lspsaga hover_doc<cr>")
-map("n", "go", "<cmd> lspsaga goto_definition<cr>")
-map("n", "gr", "<cmd> lspsaga finder<cr>")
-map("n", "<leader>qf", "<cmd> lspsaga code_action<cr>")
+map("n", "go", "<cmd> Lspsaga goto_definition<cr>")
+map("n", "gr", "<cmd> Lspsaga finder<cr>")
+map("n", "<leader>qf", "<cmd> Lspsaga code_action<cr>")
 -- bufferline keybinds
 map("n", "<a-1>", "<cmd>lua require('harpoon.ui').nav_file(1) <cr>")
 map("n", "<A-2>", "<cmd>lua require('harpoon.ui').nav_file(2) <cr>")
