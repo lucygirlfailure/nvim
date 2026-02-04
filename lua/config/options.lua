@@ -26,3 +26,11 @@ vim.diagnostic.config({
 		source = true,
 	},
 })
+require("ibl").setup({
+	scope = {
+		enabled = true, -- Turn off if you don't want the active scope highlighted
+	},
+	indent = {
+		char = "·", -- This sets the character for the indentation line
+	},
+})

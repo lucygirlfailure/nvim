@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-vim.g.mapleader = " "
 -- lsp keybinds
 map("n", "K", "<cmd> Lspsaga hover_doc<cr>")
 map("n", "go", "<cmd> Lspsaga goto_definition<cr>")
