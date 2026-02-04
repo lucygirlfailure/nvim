@@ -1,5 +1,13 @@
 return {
 	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = function()
+			require("bufferline").setup()
+		end,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		version = "*",
 		dependencies = {
@@ -61,9 +69,5 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-	},
-	{
-		"ThePrimeagen/harpoon",
-		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 }
