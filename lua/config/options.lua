@@ -7,8 +7,8 @@ vim.g.loaded_netrwPlugin = 1
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.tabstop = 2
-opt.shiftwidth = 4
+opt.tabstop = 8
+opt.shiftwidth = 8
 opt.swapfile = false
 opt.termguicolors = true
 vim.lsp.config("lua_ls", {
@@ -18,6 +18,17 @@ vim.lsp.config("lua_ls", {
 				globals = { "vim", "oxwm" },
 			},
 		},
+	},
+})
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		-- This is the magic flag often used in other editors to
+		-- force detailed hover info if it's being shy!
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
 	},
 })
 vim.diagnostic.config({

@@ -31,7 +31,7 @@ return {
 			formatters = {
 				["clang-format"] = {
 					prepend_args = {
-						"--style={BasedOnStyle: LLVM, BreakBeforeBraces: Allman, ColumnLimit: 300}",
+						"--style={BasedOnStyle: LLVM, BreakBeforeBraces: Allman, ColumnLimit: 300, IndentWidth: 8}",
 					},
 				},
 				shfmt_gentoo = {
